@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>tnl</title>
+		<meta name="description" content="tnl">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="clock/css/clock.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body onload="init()" class="snowflakes">
+		<script src="js/vendor/ThreeCanvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vendor/snow.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var SCREEN_WIDTH = window.innerWidth;
+			var SCREEN_HEIGHT = window.innerHeight;
+			var container;
+			var particle;
+			var camera;
+			var scene;
+			var renderer;
+			var mouseX = 0;
+			var mouseY = 0;
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+			var particles = []; 
+			var particleImage = new Image();
+			particleImage.src = 'img/snow.png';
+			function init() {
+				container = document.createElement('div');
+				container.setAttribute('id', 'snowflakes');
+				document.body.appendChild(container);
+				camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+				camera.position.z = 1000;
+				scene = new THREE.Scene();
+				scene.add(camera);
+				renderer = new THREE.CanvasRenderer();
+				renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+				var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+				for (var i = 0; i < 500; i++) {
+					particle = new Particle3D( material);
+					particle.position.x = Math.random() * 2000 - 1000;
+					particle.position.y = Math.random() * 2000 - 1000;
+					particle.position.z = Math.random() * 2000 - 1000;
+					particle.scale.x = particle.scale.y =  1;
+					scene.add( particle );
+					particles.push(particle); 
+				}
+				container.appendChild( renderer.domElement );
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+				setInterval( loop, 1000 / 60 );
+			}
+			function onDocumentMouseMove( event ) {
+
+				mouseX = event.clientX - windowHalfX;
+				mouseY = event.clientY - windowHalfY;
+			}
+			function onDocumentTouchStart( event ) {
+				if ( event.touches.length == 1 ) {
+					event.preventDefault();
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+				}
+			}
+			function onDocumentTouchMove( event ) {
+				if ( event.touches.length == 1 ) {
+					event.preventDefault();
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+				}
+			}
+			function loop() {
+			for(var i = 0; i<particles.length; i++)
+				{
+					var particle = particles[i]; 
+					particle.updatePhysics();
+					with(particle.position)
+					{
+						if(y<-1000) y+=2000; 
+						if(x>1000) x-=2000; 
+						else if(x<-1000) x+=2000; 
+						if(z>1000) z-=2000; 
+						else if(z<-1000) z+=2000; 
+					}				
+				}
+				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				camera.lookAt(scene.position);
+				renderer.render( scene, camera );
+			}
+		</script>
+		<section class="main-menu-container">
+			<div class="show_toggle"><a href="#"></a></div>
+			<ul class="main-menu">
+				<li><a href="#" data-page="contacts">تماس با ما</a></li>
+				<li><a href="#" data-page="about">درباره ما</a></li>
+				<li><a href="#" data-page="services">سرویس</a></li>
+				<li><a href="#" class="home-link">خانه</a></li>
+			</ul>
+		</section>
+		<section class="mainarea">
+			<div id="clock" class="active">
+				<div class="clock-container">
+					<div id="time-container-wrap">
+						<div id="time-container">
+							<div class="numbers-container"></div>
+							<span style="left:160px !important;" id="timeleft" class="clock-label"></span>
+							<figure id="canvas"></figure>
+						</div>
+					</div>
+				</div>
+				<h3 style="position: relative; top: -40px;">وب سایت ما به زودی راه اندازی می شود</h3>
+				<form style="position: relative; top: -40px;" action="#" class="subscribe" id="subscribe">
+					<input style="direction: rtl;" type="email" placeholder="لطفا ایمیل خود را وارد کنید" class="email form_item requiredField" name="subscribe_email" />
+					<button class="btn">ارسال</button>
+					<div id="form_results"></div>
+				</form>
+			</div>
+			<div class="mainarea-content">
+				<div id="services" data-page="services" class="side-page side-left went-left">
+					<div class="container">
+						<h2 style="font-size: 48px;" class="title">چه کاری انجام می دهیم</h2>
+						<ul class="services">
+							<li><img src="img/icons/promotion-icon.png" alt="" /><p>ترفیع</p></li>
+							<li><img src="img/icons/web-desing-icon.png" alt="" /><p>طراحی وب سایت</p></li>
+							<li><img src="img/icons/photography-icon.png" alt="" /><p>عکاسی</p></li>
+						</ul>
+						<p>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. 						</p>
+						<p>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.  						</p>
+					</div>
+				</div>
+				<div id="about" data-page="about" class="side-page active">
+					<div class="container">
+						<h2 class="title"> ما که هستیم</h2>
+						<p>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در						</p>
+						<p>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در						</p>
+					</div>
+				</div>
+				<div id="contacts" data-page="contacts" class="side-page side-right went-right">
+					<div class="container">
+						<h2 class="title">در تماس بودن</h2>
+						<p>تهران جردن</p>
+						<p>P: 021-21211134 · info@cotint.com</p>
+						<form class="contact-list">
+							<div class="field-row">
+								<input type="text" id="name" name="name" placeholder="نام" />
+							</div>
+							<div class="field-row">
+								<input type="email" id="email" name="email" placeholder="ایمیل" />
+							</div>
+							<div class="field-row">
+								<input type="text" id="message" name="message" placeholder="پیام" />
+							</div>
+							<div class="field-row">
+								<input type="submit" class="form_submit" value="ارسال" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<a class="close" href="#"><img alt="" src="img/close.png"></a>
+		</section>
+		<section class="social-container">
+			<ul class="social">
+				<a href="#"><i style="font-size: 20px; color: #fff;" class="fa fa-facebook"></i></a>
+				<a href="#"><i style="font-size: 20px; color: #fff;" class="fa fa-paper-plane"></i></a>
+				<a href="#"><i style="font-size: 20px; color: #fff;" class="fa fa-instagram"></i></a>
+			</ul>
+		</section>
+		<script src="js/vendor/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vendor/jquery.cycle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="clock/js/svg.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="clock/js/svg.easing.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="clock/js/svg.clock.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="clock/js/jquery.timers.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="clock/js/clock.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
