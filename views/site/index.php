@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
 
 <div class="site-index">
 
@@ -52,11 +52,11 @@ use yii\widgets\ActiveForm;
 
       <?php $form = ActiveForm::begin(); ?>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
-          <?= $form->field($model, 'service')->textarea(['rows' => 6],array('name'=>'Info[service]')) ?>
+          <?= $form->field($model, 'service')->textarea(['rows' => 6],array('name'=>'Info[service]','style'=>'font-family: IRANSans !important;')) ?>
             <script> CKEDITOR.replace( 'Info[service]' ); </script>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
-          <?= $form->field($model, 'about')->textarea(['rows' => 6],array('name'=>'Info[about]')) ?>
+          <?= $form->field($model, 'about')->textarea(['rows' => 6],array('name'=>'Info[about]','style'=>'font-family: IRANSans !important;')) ?>
             <script> CKEDITOR.replace( 'Info[about]' ); </script>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
