@@ -34,6 +34,7 @@ class AppAsset extends AssetBundle
       'js/jquery.dataTables.min.js',
       'js/dataTables.bootstrap.min.js',
       'js/fastclick.js',
+//      'js/ckeditor',
 
     ];
     public $depends = [

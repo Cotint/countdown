@@ -38,7 +38,7 @@ AppAsset::register($this);
     <!--[if lt IE 9]>
     <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/html5shiv.min.js"></script>
     <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/respond.min.js"></script>
-    <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/ckeditor.js"></script>
+
     <![endif]-->
 
 </head>

@@ -63,7 +63,10 @@ class InfoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Info();
+//        $model = new Info();
+      $info=Info::find()->orderBy(['id'=> SORT_DESC])->one();
+      $id=$info->id;
+      $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['create']);
@@ -85,7 +88,7 @@ class InfoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

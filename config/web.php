@@ -27,7 +27,7 @@ $config = [
                 'email/admin'=>'email/admin',
                 'contact/admin'=>'contact/admin',
                 'site/logout'=>'site/logout',
-
+                'info/update'=>'info/update',
                 ),
       ],
 

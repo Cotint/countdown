@@ -66,16 +66,27 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-      $model = new Info();
-
+//      $model = new Info();
+      $info=Info::find()->orderBy(['id'=> SORT_DESC])->one();
+      $id=$info->id;
+      $model = $this->findModel($id);
       if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        return $this->redirect(['index']);
+        return $this->redirect(['info/update','id'=>$model->id]);
       } else {
         return $this->render('index', [
           'model' => $model,
         ]);
       }
     }
+
+  protected function findModel($id)
+  {
+    if (($model = Info::findOne($id)) !== null) {
+      return $model;
+    } else {
+      throw new NotFoundHttpException('The requested page does not exist.');
+    }
+  }
 
     /**
      * Login action.
@@ -149,45 +160,43 @@ class SiteController extends Controller
 
     public function actionFront()
    {
+
+
+     if(Yii::$app->request->isAjax){
+       $data=Yii::$app->request->get();
+       $lastmail = $data['email'];
+       $model = new Email();
+       $model->email = $lastmail;
+       if($model->save()) {
+         return true;
+       }
+       else {
+         return false;
+       }
+     }
+
   if(Yii::$app->request->isAjax){
-    $data=Yii::$app->request->get();
-
-    $name = $data['name'];
-    $email = $data['email'];
-    $message = $data['message'];
-    $contact = new Contact();
-    $contact->name = $name;
-    $contact->email = $email;
-    $contact->message = $message;
-
-
-//    if ($contact->save(FALSE)) {
-//      return Json::encode($contact->message);
-//    }
-    if($contact->save())
-    {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+     $data=Yii::$app->request->get();
+     $name = $data['name'];
+     $email = $data['email'];
+     $message = $data['message'];
+     $contact = new Contact();
+     $contact->name = $name;
+     $contact->email = $email;
+     $contact->message = $message;
+     //    if ($contact->save(FALSE)) {
+     //      return Json::encode($contact->message);
+     //    }
+     if($contact->save()) {
+       return true;
+     }
+     else {
+       return false;
+     }
+   }
 
 
-  $info = Info::find()->orderBy(['id'=> SORT_DESC])->one();
-
-  if(isset(Yii::$app->request->post()['Email'])) {
-    $email = Yii::$app->request->post()['Email']['email'];
-    $model = new Email();
-    $model->email = $email;
-    if($model->save()){
-      Yii::$app->session->setFlash('successmail', "Your email saved");
-    }
-
-    return $this->redirect(['front']);
-  }
-else{}
-
+     $info = Info::find()->orderBy(['id'=> SORT_DESC])->one();
 
   return $this->renderPartial('front',[
     'info'=>$info,

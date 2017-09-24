@@ -67,10 +67,11 @@ use yii\helpers\Html;
         <?= Html::beginForm(['site/front'], 'post', ['enctype' => 'multipart/form-data','class'=>'subfrm']) ?>
         <?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email form_item requiredField','style'=>'direction: rtl;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
 
-        <?= Html::submitButton('ارسال', ['class' => 'btn','id'=>'submitmail','style'=>'font-weight:bold;font-family: IRANSans !important;']) ?>
-        <?php if(Yii::$app->session->getFlash('successmail')!='' ){
-          echo '<div style="color:white;">'.Yii::$app->session->getFlash('successmail') .'</div>';
-        } ?>
+        <?= Html::submitButton('ارسال', ['class' => 'btn','id'=>'submitmail','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
+<!--        --><?php //if(Yii::$app->session->getFlash('successmail')!='' ){
+//          echo '<div style="color:white;">'.Yii::$app->session->getFlash('successmail') .'</div>';
+//        } ?>
+          <div id="savemail" style="color:white;display:none;">ایمیل شما ارسال شد</div>
         <?= Html::endForm() ?>
       </div>
 
@@ -121,7 +122,7 @@ use yii\helpers\Html;
               </div>
               <div class="field-row">
             <?= Html::input('text', 'Contact[message]','', ['placeholder'=>'پیام','id'=>'contact-message']) ?>
-              </div> <div id="savemessage" style="display:none;color:white;">message saved</div>
+              </div> <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
             <?= Html::submitButton('ثبت', ['class' => 'btn' ,'id'=>'submitcontact','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
 
             <?= Html::endForm() ?>
@@ -184,6 +185,34 @@ use yii\helpers\Html;
         return false;
     });
 </script>
+<script>
+    $('form.subfrm').submit(function(e){
+        e.preventDefault();
+        var vUrl = $("#submitmail").data('url')+'/';
+        $.ajax({
+            url: vUrl,
+            type: 'GET',
+            data: {
+                email : $("#email-email").val(),
+            },
+            success:function(data){
+                //   alert('message saved');
+                var email=document.getElementById("email-email").value;
+                if(email != '') {
+                    $("#savemail").show();
+                }
+            },
+            error:function(data){
+//                alert('please fill inputs');
+                $("#savemail").hide();
+            },
+            contentType: "application/json"
+
+        });
+        return false;
+    });
+</script>
+
 <script>
     var SCREEN_WIDTH = window.innerWidth;
     var SCREEN_HEIGHT = window.innerHeight;
