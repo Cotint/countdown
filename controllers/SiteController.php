@@ -110,10 +110,62 @@ class SiteController extends Controller
         }
       }
 
+            $sendmail=Yii::$app->request->post("email");
+
+
+        if($lastone->email == $sendmail){
+
+
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < 50; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+//                return $randomString;
+                $lastone->token= $randomString;
+                $lastone->save();
+
+        Yii::$app->mailer->compose()
+            ->setFrom('a.behdinian@gmail.com')
+            ->setTo($sendmail)
+            ->setSubject('new password')
+            ->setTextBody('<a href="http://localhost/basic/web/site/changepass?id='.$randomString.'">confirm your password</a>')
+            ->setHtmlBody('<a href="http://localhost/basic/web/site/changepass?id='.$randomString.'">confirm your password</a>')
+            ->send();
+
+        }else{}
+
       return $this->render('login', [
         'model' => $model,
         'lastone'=>$lastone
       ]);
+    }
+
+    public function actionChangepass()
+    {
+        $id=$_GET['id'];
+        $model = User::find()->one();
+        if($model->token == $id)
+        {
+            $model = User::find()->one();
+//            $post=Yii::$app->request->post();
+//            var_dump(Yii::$app->request->post()['User']['password']);
+//            exit;
+            if(isset(Yii::$app->request->post()['User']['password'])) {
+                $model->password = Yii::$app->request->post()['User']['password'];
+            }
+            $model->save();
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['login']);
+            }
+            else{
+                return $this->render('changepass', [
+                    'model'=>$model
+                ]);
+            }
+        }
+
     }
 
     /**

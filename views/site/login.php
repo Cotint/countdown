@@ -25,14 +25,17 @@ use yii\bootstrap\ActiveForm;
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/AdminLTE.css">
     <link href="<?php echo Yii::$app->request->baseUrl; ?>/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/fontawesome/font-awesome.min.css">
-    <script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/44268063-AC20-8D45-81E8-12DB32887EC2/main.js" charset="UTF-8"></script></head>
+</head>
 <body class="hold-transition lockscreen">
 <div id="app">
 
     <div style="display: none;" class="modal fade" id="exampleModal" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
-                <form method="POST" action="http://apanel.tnl.ir/password/reset">
+                <?php $form = ActiveForm::begin([
+                    'method' => 'post',
+                    'action' => ['site/login'],
+                ]); ?>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><b>Reset Password</b></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -43,14 +46,14 @@ use yii\bootstrap\ActiveForm;
                         <div class="form-group">
                             <label for="email" class="form-control-label"><b>E-Mail
                                     Address:</b></label>
-                            <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                            <input type="email" class="form-control" id="email" name="email" value="" required autofocus>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="_token" value="HuGF6Es1OwjeR8rfvIzva0D83O3Z5hQ67FonAefF">
                             <button type="submit" class="btn btn-primary">Send Password Reset Link</button>
                         </div>
                     </div>
-                </form>
+                <?php ActiveForm::end() ?>
             </div>
         </div>
     </div>
