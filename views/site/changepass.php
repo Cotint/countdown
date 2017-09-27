@@ -18,17 +18,23 @@ use yii\widgets\ActiveForm;
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form">
+    <div class="lockscreen-wrapper">
+        <div class="lockscreen-logo">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
     <h3>Enter Your New Password</h3>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form" style="font-size:15px;">
         <?= $form->field($model, 'password')->passwordInput(['name'=>'User[password]','id'=>'user-password']) ?>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form" style="font-size:15px;">
+        <?= $form->field($model, 'repeatpassword')->passwordInput(['name'=>'User[repeatpassword]','id'=>'user-repeatpassword']) ?>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Create', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-
+        </div></div>
     <?php ActiveForm::end(); ?>
 
 </div>

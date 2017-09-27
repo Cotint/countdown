@@ -154,6 +154,7 @@ class SiteController extends Controller
 //            exit;
             if(isset(Yii::$app->request->post()['User']['password'])) {
                 $model->password = Yii::$app->request->post()['User']['password'];
+                $model->repeatpassword = Yii::$app->request->post()['User']['repeatpassword'];
             }
             $model->save();
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
