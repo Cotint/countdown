@@ -27,7 +27,10 @@ $config = [
                 'email/admin'=>'email/admin',
                 'contact/admin'=>'contact/admin',
                 'site/logout'=>'site/logout',
-
+                'info/update'=>'info/update',
+                'user/create'=>'user/create',
+                'user/update'=>'user/update',
+                'site/changepass'=>'site/changepass',
                 ),
       ],
 
@@ -52,8 +55,20 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+//            'useFileTransport' => true,
+
+            'viewPath' => '@app/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'a.behdinian@gmail.com', //<username>@<yourDomain>
+                'password' => 'tgyhuj1370', //<userPassword>
+                'port' => 465,
+                'encryption' => 'ssl',
+            ],
+            'useFileTransport' => false,
         ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

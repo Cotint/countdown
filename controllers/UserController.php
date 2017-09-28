@@ -64,6 +64,10 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
+//        $post = Yii::$app->request->post();
+//////        die(var_dump($post));
+//        $password=$post('password');
+//        $model->password=$password;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

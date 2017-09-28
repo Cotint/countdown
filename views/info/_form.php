@@ -65,7 +65,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form">
-      <?= Html::submitButton($model->isNewRecord ? 'ایجاد' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+      <?= Html::submitButton($model->isNewRecord ? 'ایجاد' : 'ایجاد', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
   <?php ActiveForm::end(); ?>

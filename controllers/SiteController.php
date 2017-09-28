@@ -66,16 +66,27 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-      $model = new Info();
-
+//      $model = new Info();
+      $info=Info::find()->orderBy(['id'=> SORT_DESC])->one();
+      $id=$info->id;
+      $model = $this->findModel($id);
       if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        return $this->redirect(['index']);
+        return $this->redirect(['info/update','id'=>$model->id]);
       } else {
         return $this->render('index', [
           'model' => $model,
         ]);
       }
     }
+
+  protected function findModel($id)
+  {
+    if (($model = Info::findOne($id)) !== null) {
+      return $model;
+    } else {
+      throw new NotFoundHttpException('The requested page does not exist.');
+    }
+  }
 
     /**
      * Login action.
@@ -99,10 +110,63 @@ class SiteController extends Controller
         }
       }
 
+            $sendmail=Yii::$app->request->post("email");
+
+
+        if($lastone->email == $sendmail){
+
+
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < 50; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+//                return $randomString;
+                $lastone->token= $randomString;
+                $lastone->save();
+
+        Yii::$app->mailer->compose()
+            ->setFrom('a.behdinian@gmail.com')
+            ->setTo($sendmail)
+            ->setSubject('new password')
+            ->setTextBody('<a href="http://localhost/basic/web/site/changepass?id='.$randomString.'">confirm your password</a>')
+            ->setHtmlBody('<a href="http://localhost/basic/web/site/changepass?id='.$randomString.'">confirm your password</a>')
+            ->send();
+
+        }else{}
+
       return $this->render('login', [
         'model' => $model,
         'lastone'=>$lastone
       ]);
+    }
+
+    public function actionChangepass()
+    {
+        $id=$_GET['id'];
+        $model = User::find()->one();
+        if($model->token == $id)
+        {
+            $model = User::find()->one();
+//            $post=Yii::$app->request->post();
+//            var_dump(Yii::$app->request->post()['User']['password']);
+//            exit;
+            if(isset(Yii::$app->request->post()['User']['password'])) {
+                $model->password = Yii::$app->request->post()['User']['password'];
+                $model->repeatpassword = Yii::$app->request->post()['User']['repeatpassword'];
+            }
+            $model->save();
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['login']);
+            }
+            else{
+                return $this->render('changepass', [
+                    'model'=>$model
+                ]);
+            }
+        }
+
     }
 
     /**
@@ -149,45 +213,43 @@ class SiteController extends Controller
 
     public function actionFront()
    {
+
+
+     if(Yii::$app->request->isAjax){
+       $data=Yii::$app->request->get();
+       $lastmail = $data['email'];
+       $model = new Email();
+       $model->email = $lastmail;
+       if($model->save()) {
+         return true;
+       }
+       else {
+         return false;
+       }
+     }
+
   if(Yii::$app->request->isAjax){
-    $data=Yii::$app->request->get();
-
-    $name = $data['name'];
-    $email = $data['email'];
-    $message = $data['message'];
-    $contact = new Contact();
-    $contact->name = $name;
-    $contact->email = $email;
-    $contact->message = $message;
-
-
-//    if ($contact->save(FALSE)) {
-//      return Json::encode($contact->message);
-//    }
-    if($contact->save())
-    {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+     $data=Yii::$app->request->get();
+     $name = $data['name'];
+     $email = $data['email'];
+     $message = $data['message'];
+     $contact = new Contact();
+     $contact->name = $name;
+     $contact->email = $email;
+     $contact->message = $message;
+     //    if ($contact->save(FALSE)) {
+     //      return Json::encode($contact->message);
+     //    }
+     if($contact->save()) {
+       return true;
+     }
+     else {
+       return false;
+     }
+   }
 
 
-  $info = Info::find()->orderBy(['id'=> SORT_DESC])->one();
-
-  if(isset(Yii::$app->request->post()['Email'])) {
-    $email = Yii::$app->request->post()['Email']['email'];
-    $model = new Email();
-    $model->email = $email;
-    if($model->save()){
-      Yii::$app->session->setFlash('successmail', "Your email saved");
-    }
-
-    return $this->redirect(['front']);
-  }
-else{}
-
+     $info = Info::find()->orderBy(['id'=> SORT_DESC])->one();
 
   return $this->renderPartial('front',[
     'info'=>$info,

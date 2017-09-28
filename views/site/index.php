@@ -12,8 +12,8 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Info */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<script src="https://cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
 
+<script src="https://cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
 
 <div class="site-index">
 
@@ -52,11 +52,11 @@ use yii\widgets\ActiveForm;
 
       <?php $form = ActiveForm::begin(); ?>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
-          <?= $form->field($model, 'service')->textarea(['rows' => 6],array('name'=>'Info[service]')) ?>
+          <?= $form->field($model, 'service')->textarea(['rows' => 6],array('name'=>'Info[service]','style'=>'font-family: IRANSans !important;')) ?>
             <script> CKEDITOR.replace( 'Info[service]' ); </script>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
-          <?= $form->field($model, 'about')->textarea(['rows' => 6],array('name'=>'Info[about]')) ?>
+          <?= $form->field($model, 'about')->textarea(['rows' => 6],array('name'=>'Info[about]','style'=>'font-family: IRANSans !important;')) ?>
             <script> CKEDITOR.replace( 'Info[about]' ); </script>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form">
-          <?= Html::submitButton($model->isNewRecord ? 'ایجاد' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+          <?= Html::submitButton($model->isNewRecord ? 'ایجاد' : 'ایجاد', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
 
       <?php ActiveForm::end(); ?>
