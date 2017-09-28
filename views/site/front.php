@@ -13,147 +13,335 @@ use yii\helpers\Html;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>tnlmall</title>
-  <meta name="description" content="tnl">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/clock.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main_firstpage.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/responsive.css">
-  <link href="<?php echo Yii::$app->request->baseUrl; ?>/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-    <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/modernizr-2.6.2.min.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>tnlmarket</title>
+    <meta name="description" content="A responsive coming soon template, un template HTML pour une page en cours de construction">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/pageloader.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/fonts/opensans/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/fonts/asap/stylesheet.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/foundation.min.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/jquery.fullPage.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/js/vegas/vegas.min.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main_responsive.css">
+    <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/style-font1.css">
+    <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 
-<body onload="init()" class="snowflakes">
+<body id="menu" class="alt-bg">
+<div class="page-loader" id="page-loader">
+    <div><i class="ion ion-loading-d"></i><p>tnl market</p></div>
+</div>
+<header class="header-top">
+    <div class="logo">
+        <a href="#home">
+            <img src="img/logo.png" alt="Logo Brand">
+        </a>
+    </div>
+    <div class="menu clearfix">
+        <a href="#about-us">درباره ما</a>
+        <a href="#contact">تماس</a>
+    </div>
+</header>
+<nav class="quick-link count-6 nav-left">
+    <ul id="qmenu">
+        <li data-menuanchor="home">
+            <a href="#home" class=""><i class="icon ion ion-home"></i>
+            </a>
+            <span style="font-size:18px;" class="title">خانه</span>
+        </li>
+        <li data-menuanchor="when">
+            <a href="#when" class=""><i class="icon ion ion-android-alarm"></i>
+            </a>
+            <span style="font-size:18px;" class="title">زمان</span>
+        </li>
+        <li data-menuanchor="register">
+            <a href="#register"><i class="icon ion ion-compose"></i>
+            </a>
+            <span style="font-size:18px;" class="title">خبرنامه</span>
+        </li>
+        <li data-menuanchor="about-us">
+            <a href="#about-us"><i class="icon ion ion-android-information"></i>
+            </a>
+            <span style="font-size:18px;" class="title">درباره ما</span>
+        </li>
+        <li data-menuanchor="contact">
+            <a href="#contact"><i class="icon ion ion-android-call"></i>
+            </a>
+            <span style="font-size:18px;" class="title">تماس</span>
+        </li>
+        <li data-menuanchor="contact">
+            <a href="#contact/message"><i class="icon ion ion-email"></i>
+            </a>
+            <span style="font-size:18px;" class="title">فرم</span>
+        </li>
+    </ul>
+</nav>
+<div class="page-cover" id="home">
+    <div class="cover-bg pos-abs full-size bg-img" data-image-src="img/bg-slide3.jpg"></div>
+    <div class="cover-bg pos-abs full-size slide-show">
+        <i class='img' data-src='./img/bg-slide1.jpg'></i>
+        <i class='img' data-src='./img/bg-slide2.jpg'></i>
+        <i class='img' data-src='./img/bg-slide3.jpg'></i>
+        <i class='img' data-src='./img/bg-slide2.jpg'></i>
+    </div>
+    <div class="cover-bg pos-abs full-size bg-color" data-bgcolor="rgba(51, 2, 48, 0.12)"></div>
 
-<?php //if(Yii::$app->session->getFlash('successmail')!='' ){
-//  echo '<script>alert("'.Yii::$app->session->getFlash('successmail').'");</script>';
-//} ?>
-
-
-
-
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/ThreeCanvas.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/snow.js" type="text/javascript" charset="utf-8"></script>
-<div id="snow" data-img="<?php echo Yii::$app->request->baseUrl; ?>/img/snow.png"></div>
-<section class="main-menu-container">
-  <div class="show_toggle"><a href="#"></a></div>
-  <ul class="main-menu">
-
-
-
-      <li><a href="#" data-page="contacts">تماس با ما</a></li>
-    <li><a href="#" data-page="about">درباره ما</a></li>
-    <li><a href="#" data-page="services">سرویس</a></li>
-    <li><a href="#" class="home-link">خانه</a></li>
-  </ul>
-</section>
-<section class="mainarea">
-  <div id="clock" class="active">
-    <div class="clock-container">
-      <div id="time-container-wrap">
-        <div id="time-container">
-          <div class="numbers-container"></div>
-          <span style="left:160px !important;" id="timeleft" class="clock-label"></span>
-          <figure id="canvas"></figure>
+</div>
+<main class="page-main" id="mainpage">
+    <div class="section page-home page page-cent" id="s-home">
+        <div class="logo-container">
+            <img class="h-logo" src="img/logo.png" alt="Logo">
         </div>
-      </div>
+        <section class="content">
+            <header class="header">
+                <div class="h-left">
+                    <h2>TNL <strong>MARKET</strong></h2>
+                </div>
+                <div class="h-right">
+                    <h3>لورم <br>ایپسوم</h3>
+                    <h4 class="subhead"><a href="#when">به زودی</a></h4>
+                </div>
+            </header>
+        </section>
+        <footer class="p-footer p-scrolldown">
+            <a href="#when">
+                <div class="arrow-d">
+                    <div class="before">زمان</div>
+                    <div class="after">زمان</div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </footer>
     </div>
-    <h3 style="position: relative; top: -40px;">وب سایت ما به زودی راه اندازی می شود</h3>
-      <div style="position: relative; top: -40px;" class="subscribe" id="subscribe">
-        <?= Html::beginForm(['site/front'], 'post', ['enctype' => 'multipart/form-data','class'=>'subfrm']) ?>
-        <?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email form_item requiredField','style'=>'direction: rtl;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
+    <div class="section page-when page page-cent" id="s-when">
+        <section class="content">
+            <div class="clock clock-countdown">
+                <div class="site-config"
+                     data-date="01/24/2018 23:00:00"
+                     data-date-timezone="+0"
+                ></div>
+                <header class="header">
+                    به <strong>زودی</strong>
+                </header>
+                <div class="elem-left">
+                    <div class="digit hours">00</div>
+                    <div class="text">ساعت</div>
+                </div>
+                <div class="elem-center">
+                    <span class="text top"><img class="img" alt="Logo" src="img/logo.png"></span>
+                    <div class="digit days">000</div>
+                    <div class="text">روز</div>
+                </div>
+                <div class=" elem-right">
+                    <div class="digit minutes">00</div>
+                    <div class="text">دقیقه</div>
+                </div>
+                <div class="second">
+                    <input class="knob container"
+                           id="second-knob"
+                           data-width="400"
+                           data-height="400"
+                           data-displayInput=false
+                           data-fgColor="#fff"
+                           data-bgColor="rgba(255,255,255,0)"
+                           data-thickness=".07"
+                           value="0"
+                           data-displayPrevious=true
+                           data-max="6000"
+                    />
+                </div>
+            </div>
 
-        <?= Html::submitButton('ارسال', ['class' => 'btn','id'=>'submitmail','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-<!--        --><?php //if(Yii::$app->session->getFlash('successmail')!='' ){
-//          echo '<div style="color:white;">'.Yii::$app->session->getFlash('successmail') .'</div>';
-//        } ?>
-          <div id="savemail" style="color:white;display:none;">ایمیل شما ارسال شد</div>
-        <?= Html::endForm() ?>
-      </div>
-
-
-
-
-
-
-
-      <div id="form_results"></div>
-  </div>
-  <div class="mainarea-content">
-    <div id="services" data-page="services" class="side-page side-left went-left">
-      <div class="container">
-        <h2 style="font-size: 48px;" class="title">چه کاری انجام می دهیم</h2>
-        <ul class="services">
-          <li><img src="<?php echo Yii::$app->request->baseUrl; ?>/img/icons/promotion-icon.png" alt="" /><p>ترفیع</p></li>
-          <li><img src="<?php echo Yii::$app->request->baseUrl; ?>/img/icons/web-desing-icon.png" alt="" /><p>طراحی وب سایت</p></li>
-          <li><img src="<?php echo Yii::$app->request->baseUrl; ?>/img/icons/photography-icon.png" alt="" /><p>عکاسی</p></li>
-        </ul>
-        <p><?php echo $info->service;?></p>
-
-      </div>
+        </section>
+        <footer class="p-footer p-scrolldown">
+            <a href="#register">
+                <div class="arrow-d">
+                    <div class="before">زمان</div>
+                    <div class="after">زمان</div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </footer>
     </div>
-    <div id="about" data-page="about" class="side-page active">
-      <div class="container">
-          <h2 style="font-size: 48px;" class="title">ما که هستیم</h2>
-          <p><?php echo $info->about;?></p>
-      </div>
+    <div class="section page-register page page-cent " id="s-register">
+        <section class="content">
+            <header class="p-title">
+                <h3>خبر نامه <i class="ion ion-compose"></i></h3>
+            </header>
+            <div>
+                <?= Html::beginForm(['site/front'], 'post', ['enctype' => 'multipart/form-data', 'class'=>'form magic send_email_form subfrm', 'id' => 'mail-subscription']) ?>
+                    <p class="invite center">لطفا ایمیل خود را در زیر بنویسید تا با ما در تماس باشید</p>
+                    <div class="fields clearfix">
+                        <div class="input">
+                            <?= Html::submitButton('ارسال', ['class' => 'button','id'=>'submitmail','style'=>'margin-left:-89px;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
+                            <?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField','style'=>'direction: rtl; margin-left: -72px;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
+                        </div>
+                    </div>
+                <div id="savemail" style="color:white;display:none;">ایمیل شما ارسال شد</div>
+                <?= Html::endForm() ?>
+            </div>
+        </section>
+        <footer class="p-footer p-scrolldown">
+            <a href="#about-us">
+                <div class="arrow-d">
+                    <div class="before">زمان</div>
+                    <div class="after">زمان</div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </footer>
     </div>
-
-
-          <div id="contacts" data-page="contacts" class="side-page side-right went-right" >
-      <div class="container">
-        <h2 class="title">در تماس بودن</h2>
-        <p><?php echo $info->address;?></p>
-        <p>P: 021-21211134 · info@cotint.com</p>
-
-
-
-          <div class="contact-list">
-            <?= Html::beginForm(['site/front'], 'post', ['enctype' => 'multipart/form-data','class'=>'frm']) ?>
-              <div class="field-row">
-            <?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام','id'=>'contact-name']) ?>
-              </div>
-              <div class="field-row">
-            <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل','id'=>'contact-email']) ?>
-              </div>
-              <div class="field-row">
-            <?= Html::input('text', 'Contact[message]','', ['placeholder'=>'پیام','id'=>'contact-message']) ?>
-              </div> <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
-            <?= Html::submitButton('ثبت', ['class' => 'btn' ,'id'=>'submitcontact','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-
-            <?= Html::endForm() ?>
-          </div>
-
-      </div>
+    <div class="section page-about page page-cent" id="s-about-us">
+        <section class="content">
+            <header class="p-title">
+                <h3>درباره ما<i class="ion ion-android-information">
+                    </i>
+                </h3>
+                <h2 style="text-align: right;">لورم <span class="bold">ایپسوم</span> لورم <span class="bold">ایپسوم</span> لورم ایپسوم</h2>
+            </header>
+            <article style="direction:rtl;" class="text">
+                <p style="text-align: right;">لورم ایپسوم <strong>لورم </strong>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد </p>
+                <p style="text-align: right;">> کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت . </p>
+            </article>
+        </section>
+        <footer class="p-footer p-scrolldown">
+            <a href="#contact">
+                <div class="arrow-d">
+                    <div class="before">زمان</div>
+                    <div class="after">زمان</div>
+                    <div class="circle"></div>
+                </div>
+            </a>
+        </footer>
     </div>
-  </div>
+    <div class="section page-contact page page-cent  bg-color" data-bgcolor="rgba(95, 25, 208, 0.88)s" id="s-contact">
+        <div class="slide" id="information" data-anchor="information">
+            <section class="content">
+                <header class="p-title">
+                    <h3>تماس با ما<i class="ion ion-location">
+                        </i>
+                    </h3>
+                    <ul class="buttons">
+                        <li class="show-for-medium-up">
+                            <a title="About" href="#about-us" ><i class="ion ion-android-information"></i></a>
+                        </li>
+                        <li>
+                            <a title="Message" href="#contact/message"><i class="ion ion-email"></i></a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="contact">
+                    <div class="row">
+                        <div class="medium-6 columns left">
+                            <ul>
+                                <li>
+                                    <h4>ایمیل</h4>
+                                    <p><a href="mailto://contact@mail.com">info@tnlmarket.ir</a></p>
+                                </li>
+                                <li>
+                                    <h4>ادرس</h4>
+                                    <p>تهران جردن
+                                        <br>خیبان گلستان</p>
+                                </li>
+                                <li>
+                                    <h4>تلفن</h4>
+                                    <p>۰۹۳۷۰۰۸۷۵۸۱</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="medium-6 columns social-links right">
+                            <ul>
+                                <li class="show-for-medium-up">
+                                    <h4>سایت</h4>
+                                    <p><a href="http://www.highhay.com">cotint.ir</a></p>
+                                </li>
+                                <li  class="show-for-medium-up">
+                                    <h4>شبکه اجتماعی</h4>
+                                    <div class="socialnet">
+                                        <a href="#"><i class="ion ion-social-facebook"></i></a>
+                                        <a href="#"><i class="ion ion-social-instagram"></i></a>
+                                        <a href="#"><i class="ion ion-social-twitter"></i></a>
+                                        <a href="#"><i class="ion ion-social-pinterest"></i></a>
+                                        <a href="#"><i class="ion ion-social-tumblr"></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><img src="img/logo.png" alt="Logo" class="logo"></p>
+                                    <p class="small">powered By <strong><a href="http://highhay.com">Cotint</a></strong></p>
+                                </li>
+                            </ul>
 
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="slide" id="message" data-anchor="message">
+            <section class="content">
+                <header class="p-title">
+                    <h3>ارتباط با ما<i class="ion ion-email">
+                        </i>
+                    </h3>
+                    <ul class="buttons">
+                        <li class="show-for-medium-up">
+                            <a title="About" href="#about-us"><i class="ion ion-android-information"></i></a>
+                        </li>
+                        <li>
+                            <a title="Contact" href="#contact/information"><i class="ion ion-location"></i></a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="page-block c-right v-zoomIn">
+                    <div class="wrapper">
+                        <div>
+                            <?= Html::beginForm(['site/front'], 'post', ['enctype' => 'multipart/form-data','class'=>'frm message form send_message_form']) ?>
+                                <div class="fields clearfix">
+                                    <div class="input">
+                                        <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
+                                        <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
+                                        <?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'style' => 'direction:rtl; margin-left:-70px;']) ?>
+                                    </div>
+                                </div>
+                                <div class="fields clearfix">
+                                    <div class="input">
+                                        <label for="mes-email"> .</label>
+                                        <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => 'direction:rtl; margin-left:-70px; color: #fff;']) ?>
+                                    </div>
+                                </div>
+                                <div class="fields clearfix no-border">
+                                    <label style="float:right;" for="contact-message">متن </label>
+                                    <?= Html::textarea( 'Contact[message]','', ['placeholder'=>'پیام', 'id'=>'contact-message', 'style' => 'direction:rtl;']) ?>
+                                    <div>
+                                    </div>
+                                </div>
+                            <?= Html::endForm() ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+<footer class="page-footer">
+			<span>شبکه اجتماعی
+				<a href="" target="_blank"><i class="ion icon ion-social-facebook"></i></a>
+				<a href="" target="_blank"><i class="ion icon ion-social-instagram"></i></a>
+				<a href="" target="_blank"><i class="ion icon ion-social-twitter"></i></a>
+			</span>
+</footer>
 
-
-  <a class="close" href="#"><img alt="" src="<?php echo Yii::$app->request->baseUrl; ?>/img/close.png"></a>
-</section>
-<section class="social-container">
-  <ul class="social">
-    <a href="<?php echo $info->facebook; ?>"><i style="font-size: 20px; color: #fff;" class="fa fa-facebook" ></i></a>
-    <a href="<?php echo $info->instagram ; ?>"><i style="font-size: 20px; color: #fff;" class="fa fa-instagram"></i></a>
-      <a href="<?php echo $info->telegram ; ?>"><i style="font-size: 20px; color: #fff;" class="fa fa-paper-plane"></i></a>
-      <a href="<?php echo $info->aparat; ?>"><i style="font-size: 20px; color: #fff;" class="fa fa-film"></i></a>
-  </ul>
-</section>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/jquery.cycle.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/main.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/clock/js/svg.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/clock/js/svg.easing.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/clock/js/svg.clock.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/clock/js/jquery.timers.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/clock/js/clock.js" type="text/javascript" charset="utf-8"></script>
-</body>
-</html>
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/all.js"></script>
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/jquery.downCount.js"></script>
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/form_script.js"></script>
+<script src="<?php echo Yii::$app->request->baseUrl; ?>/js/main.js"></script>
 <script>
     $('form.frm').submit(function(e){
         e.preventDefault();
@@ -167,7 +355,7 @@ use yii\helpers\Html;
                 message : $("#contact-message").val()
             },
             success:function(data){
-             //   alert('message saved');
+                //   alert('message saved');
                 var name=document.getElementById("contact-name").value;
                 var email=document.getElementById("contact-email").value;
                 var message=document.getElementById("contact-message").value;
@@ -212,87 +400,5 @@ use yii\helpers\Html;
         return false;
     });
 </script>
-
-<script>
-    var SCREEN_WIDTH = window.innerWidth;
-    var SCREEN_HEIGHT = window.innerHeight;
-    var container;
-    var particle;
-    var camera;
-    var scene;
-    var renderer;
-    var mouseX = 0;
-    var mouseY = 0;
-    var windowHalfX = window.innerWidth / 2;
-    var windowHalfY = window.innerHeight / 2;
-    var particles = [];
-    var particleImage = new Image();
-    particleImage.src = 'http://localhost/basic/web/img/snow.png';
-    function init() {
-        container = document.createElement('div');
-        container.setAttribute('id', 'snowflakes');
-        document.body.appendChild(container);
-        camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
-        camera.position.z = 1000;
-        scene = new THREE.Scene();
-        scene.add(camera);
-        renderer = new THREE.CanvasRenderer();
-        renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-        var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
-        for (var i = 0; i < 500; i++) {
-            particle = new Particle3D( material);
-            particle.position.x = Math.random() * 2000 - 1000;
-            particle.position.y = Math.random() * 2000 - 1000;
-            particle.position.z = Math.random() * 2000 - 1000;
-            particle.scale.x = particle.scale.y =  1;
-            scene.add( particle );
-            particles.push(particle);
-        }
-        container.appendChild( renderer.domElement );
-        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-        setInterval( loop, 1000 / 60 );
-    }
-    function onDocumentMouseMove( event ) {
-
-        mouseX = event.clientX - windowHalfX;
-        mouseY = event.clientY - windowHalfY;
-    }
-    function onDocumentTouchStart( event ) {
-        if ( event.touches.length == 1 ) {
-            event.preventDefault();
-            mouseX = event.touches[ 0 ].pageX - windowHalfX;
-            mouseY = event.touches[ 0 ].pageY - windowHalfY;
-        }
-    }
-    function onDocumentTouchMove( event ) {
-        if ( event.touches.length == 1 ) {
-            event.preventDefault();
-            mouseX = event.touches[ 0 ].pageX - windowHalfX;
-            mouseY = event.touches[ 0 ].pageY - windowHalfY;
-        }
-    }
-    function loop() {
-        for(var i = 0; i<particles.length; i++)
-        {
-            var particle = particles[i];
-            particle.updatePhysics();
-            with(particle.position)
-            {
-                if(y<-1000) y+=2000;
-                if(x>1000) x-=2000;
-                else if(x<-1000) x+=2000;
-                if(z>1000) z-=2000;
-                else if(z<-1000) z+=2000;
-            }
-        }
-        camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-        camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
-        camera.lookAt(scene.position);
-        renderer.render( scene, camera );
-    }
-
-</script>
-
-
+</body>
+</html>

@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
 
 <div class="info-form  container">
 
-  <?php $form = ActiveForm::begin(); ?>
+  <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
       <?= $form->field($model, 'service')->textarea(['rows' => 6],array('name'=>'Info[service]')) ?>
         <script> CKEDITOR.replace( 'Info[service]' ); </script>
@@ -62,6 +62,14 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
       <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
+        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
+        <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="header_form">

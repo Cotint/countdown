@@ -213,9 +213,7 @@ class SiteController extends Controller
 
     public function actionFront()
    {
-
-
-     if(Yii::$app->request->isAjax){
+     if(Yii::$app->request->isAjax && !isset(Yii::$app->request->get()['Contact'])){
        $data=Yii::$app->request->get();
        $lastmail = $data['email'];
        $model = new Email();
@@ -228,8 +226,8 @@ class SiteController extends Controller
        }
      }
 
-  if(Yii::$app->request->isAjax){
-     $data=Yii::$app->request->get();
+  if(Yii::$app->request->isAjax && isset(Yii::$app->request->get()['Contact'])){
+     $data=Yii::$app->request->get()['Contact'];
      $name = $data['name'];
      $email = $data['email'];
      $message = $data['message'];
