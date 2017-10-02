@@ -11,28 +11,29 @@ use yii\widgets\ActiveForm;
 ?>
 
 <?php $baseUrl = Yii::$app->request->url;?>
+<?php $base_u = Yii::$app->request->hostInfo.Yii::$app->request->baseUrl; ?>
 <!-- Custom tabs (Charts with tabs)-->
 <div class="nav-tabs-custom ">
     <!-- Tabs within a box -->
     <ul class="nav nav-tabs pull-right">
       <?php if($baseUrl == '/countdown/basic/web/index.php?r=info/create'){?>
-          <li class="active"><a href="/basic/web/info/create"> درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
+          <li class="active"><a href="<?= $base_u ?>/info/create"> درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
 
       <?php }else{?>
-          <li><a href="/basic/web/info/create">  درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
+          <li><a href="<?= $base_u ?>/info/create">  درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
       <?php }?>
 
       <?php if($baseUrl == '/countdown/basic/web/index.php?r=email/admin'){?>
-          <li class="active"><a href="/basic/web/?r=email/admin"> اشتراک <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li class="active"><a href="<?= $base_u ?>/?r=email/admin"> اشتراک <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
 
       <?php }else{?>
-          <li><a href="/basic/web/r=email/admin"> اشتراک <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li><a href="<?= $base_u ?>//r=email/admin"> اشتراک <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
       <?php }?>
       <?php if($baseUrl == '/countdown/basic/web/index.php?r=contact/admin'){?>
-          <li class="active"><a href="/basic/web/contact/admin"> پیام های دریافتی   <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+          <li class="active"><a href="<?= $base_u ?>/contact/admin"> پیام های دریافتی   <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
 
       <?php }else{?>
-          <li><a href="/basic/web/contact/admin">  پیام های دریافتی <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+          <li><a href="<?= $base_u ?>/contact/admin">  پیام های دریافتی <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
       <?php }?>
 
         <li><?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]) ?></li>    </ul>

@@ -20,6 +20,8 @@ use yii\web\UploadedFile;
  * @property string $email
  * @property string $phone
  * @property string $logo
+ * @property string $image
+ * @property string $time
  */
 class Info extends \yii\db\ActiveRecord
 {
@@ -43,9 +45,10 @@ class Info extends \yii\db\ActiveRecord
     {
         return [
             [['service', 'about'], 'required'],
-            [['service', 'about', 'email', 'phone'], 'string'],
+            [['service', 'about', 'email', 'phone', 'time'], 'string'],
             [['facebook', 'instagram', 'aparat', 'telegram', 'address'], 'string', 'max' => 255],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['logo'], 'string', 'max' => 250],
         ];
     }
 
@@ -68,10 +71,10 @@ class Info extends \yii\db\ActiveRecord
         ];
     }
 
-    public function upload()
+    public function upload($filename)
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            $this->imageFile->saveAs('uploads/' . $filename . '.' . $this->imageFile->extension);
             return true;
         } else {
             return false;

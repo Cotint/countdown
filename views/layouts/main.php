@@ -33,6 +33,8 @@ AppAsset::register($this);
 
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main.css">
 
+    <link type="text/css" rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/persiandate/css/persianDatepicker-default.css" />
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
