@@ -21,20 +21,18 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-
-      'js/bootstrap.min.js',
-      'js/fastclick.js',
-      'js/adminlte.min.js',
-      'js/jquery.sparkline.min.js',
-      'js/jquery-jvectormap-1.2.2.min.js',
-      'js/jquery-jvectormap-world-mill-en.js',
-      'js/jquery.slimscroll.min.js',
-      'js/dashboard2.js',
-      'js/demo.js',
-      'js/jquery.dataTables.min.js',
-      'js/dataTables.bootstrap.min.js',
-      'js/fastclick.js',
-//      'js/ckeditor',
+        'js/bootstrap.min.js',
+        'js/fastclick.js',
+        'js/adminlte.min.js',
+        'js/jquery.sparkline.min.js',
+        'js/jquery-jvectormap-1.2.2.min.js',
+        'js/jquery-jvectormap-world-mill-en.js',
+        'js/jquery.slimscroll.min.js',
+        'js/demo.js',
+        'js/jquery.dataTables.min.js',
+        'js/dataTables.bootstrap.min.js',
+        'js/fastclick.js',
+        'persiandate/js/persianDatepicker.js'
 
     ];
     public $depends = [
