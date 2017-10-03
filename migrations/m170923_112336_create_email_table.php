@@ -14,6 +14,7 @@ class m170923_112336_create_email_table extends Migration
     {
         $this->createTable('email', [
             'id' => $this->primaryKey(),
+            'email'=> 'varchar NOT NULL'
         ]);
     }
 

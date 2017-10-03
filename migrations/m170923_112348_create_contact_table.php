@@ -14,6 +14,10 @@ class m170923_112348_create_contact_table extends Migration
     {
         $this->createTable('contact', [
             'id' => $this->primaryKey(),
+            'name'=> 'varchar NOT NULL',
+            'email'=> 'varchar NOT NULL',
+            'message'=> 'varchar NOT NULL',
+
         ]);
     }
 
