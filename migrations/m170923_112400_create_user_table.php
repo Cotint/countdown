@@ -12,8 +12,12 @@ class m170923_112400_create_user_table extends Migration
      */
     public function up()
     {
-        $this->createTable('user', [
+        $this->createTable('tbl_user', [
             'id' => $this->primaryKey(),
+            'username'=> $this->string()->notNull(),
+            'password'=> $this->text()->notNull(),
+            'email'=> $this->string()->notNull(),
+            'token'=> $this->text()->notNull(),
         ]);
     }
 
@@ -22,6 +26,6 @@ class m170923_112400_create_user_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('user');
+        $this->dropTable('tbl_user');
     }
 }

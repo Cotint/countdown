@@ -10,7 +10,9 @@ $config = [
   'language'=>'fa_ir',
   'defaultRoute'=>'site/front',
     'components' => [
-
+        'datetime' => [
+            'class' => 'app\components\DateTimeComponent',
+        ],
 
       'urlManager' => [
                'class' => 'yii\web\UrlManager',
@@ -23,7 +25,7 @@ $config = [
                 '/' => 'site/front',
                 '/admin' => 'site/login',
                 'site/index'=>'site/index',
-                'info/create'=>'info/create',
+//                'info/create'=>'info/create',
                 'email/admin'=>'email/admin',
                 'contact/admin'=>'contact/admin',
                 'site/logout'=>'site/logout',
@@ -62,7 +64,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
                 'username' => 'a.behdinian@gmail.com', //<username>@<yourDomain>
-                'password' => 'tgyhuj1370', //<userPassword>
+                'password' => '', //<userPassword>
                 'port' => 465,
                 'encryption' => 'ssl',
             ],

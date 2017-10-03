@@ -28,10 +28,11 @@ html {
     color: #fff;
     font-size: 1em;
     line-height: 1.4;
-	background: #626262;
+
 	  font-family: sansMedium;
 }
-
+#header_form{direction:rtl;}
+#table_head,#table{direction:rtl;text-align:center;}
 ::-moz-selection {
     background: #fff;
     text-shadow: none;
@@ -968,7 +969,7 @@ strong,
 .page-cent .text{	
     font-family: 'Asap';
 	color: #fff;
-	text-align: left;
+	text-align: right;
 }
 .page p{    
     font-family: 'Asap';
