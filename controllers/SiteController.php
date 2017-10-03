@@ -71,8 +71,9 @@ class SiteController extends Controller
         $id = $info->id;
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post())) {
-            $timeArray = explode('/', Yii::$app->request->post()['time']);
-            $gregorian = $this->jalali_to_gregorian($timeArray[0], $timeArray[1], $timeArray[2]);
+
+            $timeArray = explode('/', Yii::$app->request->post()['Info']['time']);
+            $gregorian = Yii::$app->datetime->jalali_to_gregorian($timeArray[0], $timeArray[1], $timeArray[2]);
             $timestamp =mktime(0, 0, 0, $gregorian[1], $gregorian[2], $gregorian[0]);
             $date = new \DateTime();
             $date->setTimestamp($timestamp);
@@ -84,18 +85,23 @@ class SiteController extends Controller
                 }
             } else {
                 $filename = uniqid();
-                $model->logo = $filename;
                 $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                $model->logo = $filename.'.'.$model->imageFile->extension;
                 if ($model->save()) {
                     if ($model->upload($filename)) {
                         return $this->redirect(['index']);
                     }
                 }
             }
-            return $this->redirect(['info/update', 'id' => $model->id]);
+            return $this->redirect(['site/index', 'id' => $model->id]);
         } else {
+            $timeArray = explode('-', date('Y-m-d', strtotime($model->time)));
+            $jalaliArray = Yii::$app->datetime->gregorian_to_jalali($timeArray[0], $timeArray[1], $timeArray[2]);
+            $jalali = implode('/', $jalaliArray);
+
             return $this->render('index', [
                 'model' => $model,
+                'jalaliDate' => $jalali,
             ]);
         }
     }
@@ -144,14 +150,16 @@ class SiteController extends Controller
             }
 //                return $randomString;
             $lastone->token = $randomString;
-            $lastone->save();
+            $lastone->save(false);
 
+
+            $baseurl = Yii::$app->request->hostInfo.Yii::$app->request->baseUrl;
             Yii::$app->mailer->compose()
                 ->setFrom('a.behdinian@gmail.com')
                 ->setTo($sendmail)
                 ->setSubject('new password')
-                ->setTextBody('<a href="http://localhost/basic/web/site/changepass?id=' . $randomString . '">confirm your password</a>')
-                ->setHtmlBody('<a href="http://localhost/basic/web/site/changepass?id=' . $randomString . '">confirm your password</a>')
+                ->setTextBody('<a href="' . $baseurl .'/site/changepass?id=' . $randomString . '">confirm your new password</a>')
+                ->setHtmlBody('<a href="' . $baseurl .'/site/changepass?id=' . $randomString . '">confirm your new password</a>')
                 ->send();
 
         } else {
@@ -271,72 +279,4 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * @param $gy
-     * @param $gm
-     * @param $gd
-     * @param string $mod
-     * @return array|string
-     */
-    public function gregorian_to_jalali($gy, $gm, $gd, $mod = '')
-    {
-        $g_d_m = array(0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334);
-        if ($gy > 1600) {
-            $jy = 979;
-            $gy -= 1600;
-        } else {
-            $jy = 0;
-            $gy -= 621;
-        }
-        $gy2 = ($gm > 2) ? ($gy + 1) : $gy;
-        $days = (365 * $gy) + ((int)(($gy2 + 3) / 4)) - ((int)(($gy2 + 99) / 100)) + ((int)(($gy2 + 399) / 400)) - 80 + $gd + $g_d_m[$gm - 1];
-        $jy += 33 * ((int)($days / 12053));
-        $days %= 12053;
-        $jy += 4 * ((int)($days / 1461));
-        $days %= 1461;
-        if ($days > 365) {
-            $jy += (int)(($days - 1) / 365);
-            $days = ($days - 1) % 365;
-        }
-        $jm = ($days < 186) ? 1 + (int)($days / 31) : 7 + (int)(($days - 186) / 30);
-        $jd = 1 + (($days < 186) ? ($days % 31) : (($days - 186) % 30));
-        return ($mod == '') ? array($jy, $jm, $jd) : $jy . $mod . $jm . $mod . $jd;
-    }
-
-    /**
-     * @param $jy
-     * @param $jm
-     * @param $jd
-     * @param string $mod
-     * @return array|string
-     */
-    public function jalali_to_gregorian($jy, $jm, $jd, $mod = '')
-    {
-        if ($jy > 979) {
-            $gy = 1600;
-            $jy -= 979;
-        } else {
-            $gy = 621;
-        }
-        $days = (365 * $jy) + (((int)($jy / 33)) * 8) + ((int)((($jy % 33) + 3) / 4)) + 78 + $jd + (($jm < 7) ? ($jm - 1) * 31 : (($jm - 7) * 30) + 186);
-        $gy += 400 * ((int)($days / 146097));
-        $days %= 146097;
-        if ($days > 36524) {
-            $gy += 100 * ((int)(--$days / 36524));
-            $days %= 36524;
-            if ($days >= 365) $days++;
-        }
-        $gy += 4 * ((int)($days / 1461));
-        $days %= 1461;
-        if ($days > 365) {
-            $gy += (int)(($days - 1) / 365);
-            $days = ($days - 1) % 365;
-        }
-        $gd = $days + 1;
-        foreach (array(0, 31, (($gy % 4 == 0 and $gy % 100 != 0) or ($gy % 400 == 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31) as $gm => $v) {
-            if ($gd <= $v) break;
-            $gd -= $v;
-        }
-        return ($mod == '') ? array($gy, $gm, $gd) : $gy . $mod . $gm . $mod . $gd;
-    }
 }

@@ -41,7 +41,8 @@ use yii\helpers\Html;
 <header class="header-top">
     <div class="logo">
         <a href="#home">
-            <img src="img/logo.png" alt="Logo Brand">
+<!--            <img src="img/logo.png" alt="Logo Brand">-->
+            <img src="uploads/<?= $info->logo;?>" alt="Logo Brand">
         </a>
     </div>
     <div class="menu clearfix">
@@ -97,7 +98,8 @@ use yii\helpers\Html;
 <main class="page-main" id="mainpage">
     <div class="section page-home page page-cent" id="s-home">
         <div class="logo-container">
-            <img class="h-logo" src="img/logo.png" alt="Logo">
+<!--            <img class="h-logo" src="img/logo.png" alt="Logo">-->
+            <img class="h-logo" src="uploads/<?= $info->logo; ?>" alt="Logo">
         </div>
         <section class="content">
             <header class="header">
@@ -124,7 +126,8 @@ use yii\helpers\Html;
         <section class="content">
             <div class="clock clock-countdown">
                 <div class="site-config"
-                     data-date="01/24/2018 23:00:00"
+
+                data-date=<?= $info->time; ?>
                      data-date-timezone="+0"
                 ></div>
                 <header class="header">
@@ -135,7 +138,10 @@ use yii\helpers\Html;
                     <div class="text">ساعت</div>
                 </div>
                 <div class="elem-center">
-                    <span class="text top"><img class="img" alt="Logo" src="img/logo.png"></span>
+                    <span class="text top">
+<!--                        <img class="img" alt="Logo" src="img/logo.png">-->
+                        <img class="img" alt="Logo" src="uploads/<?= $info->logo; ?>">
+                    </span>
                     <div class="digit days">000</div>
                     <div class="text">روز</div>
                 </div>
@@ -204,11 +210,11 @@ use yii\helpers\Html;
                 <h3>درباره ما<i class="ion ion-android-information">
                     </i>
                 </h3>
-                <h2 style="text-align: right;">لورم <span class="bold">ایپسوم</span> لورم <span class="bold">ایپسوم</span> لورم ایپسوم</h2>
+<!--                <h2 style="text-align: right;">لورم <span class="bold">ایپسوم</span> لورم <span class="bold">ایپسوم</span> لورم ایپسوم</h2>-->
             </header>
             <article style="direction:rtl;" class="text">
-                <p style="text-align: right;">لورم ایپسوم <strong>لورم </strong>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد </p>
-                <p style="text-align: right;">> کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت . </p>
+                <p style="direction:rtl;"><?= $info->about; ?></p>
+
             </article>
         </section>
         <footer class="p-footer p-scrolldown">
@@ -243,16 +249,15 @@ use yii\helpers\Html;
                             <ul>
                                 <li>
                                     <h4>ایمیل</h4>
-                                    <p><a href="mailto://contact@mail.com">info@tnlmarket.ir</a></p>
+                                    <p><a href="mailto://contact@mail.com"><?= $info->email; ?></a></p>
                                 </li>
                                 <li>
-                                    <h4>ادرس</h4>
-                                    <p>تهران جردن
-                                        <br>خیبان گلستان</p>
+                                    <h4>آدرس</h4>
+                                    <p><?= $info->address; ?></p>
                                 </li>
                                 <li>
                                     <h4>تلفن</h4>
-                                    <p>۰۹۳۷۰۰۸۷۵۸۱</p>
+                                    <p><?= $info->phone; ?></p>
                                 </li>
                             </ul>
                         </div>
@@ -265,15 +270,18 @@ use yii\helpers\Html;
                                 <li  class="show-for-medium-up">
                                     <h4>شبکه اجتماعی</h4>
                                     <div class="socialnet">
-                                        <a href="#"><i class="ion ion-social-facebook"></i></a>
-                                        <a href="#"><i class="ion ion-social-instagram"></i></a>
-                                        <a href="#"><i class="ion ion-social-twitter"></i></a>
-                                        <a href="#"><i class="ion ion-social-pinterest"></i></a>
-                                        <a href="#"><i class="ion ion-social-tumblr"></i></a>
+                                        <a href="<?= $info->facebook; ?>"><i class="ion ion-social-facebook"></i></a>
+                                        <a href="<?= $info->instagram; ?>"><i class="ion ion-social-instagram"></i></a>
+                                        <a href="<?= $info->twitter; ?>"><i class="ion ion-social-twitter"></i></a>
+<!--                                        <a href="#"><i class="ion ion-social-pinterest"></i></a>-->
+                                        <a href="<?= $info->tumblr; ?>"><i class="ion ion-social-tumblr"></i></a>
                                     </div>
                                 </li>
                                 <li>
-                                    <p><img src="img/logo.png" alt="Logo" class="logo"></p>
+                                    <p>
+<!--                                        <img src="img/logo.png" alt="Logo" class="logo">-->
+                                        <img src="uploads/<?= $info->logo; ?>" alt="Logo" class="logo">
+                                    </p>
                                     <p class="small">powered By <strong><a href="http://highhay.com">Cotint</a></strong></p>
                                 </li>
                             </ul>
@@ -305,7 +313,7 @@ use yii\helpers\Html;
                                 <div class="fields clearfix">
                                     <div class="input">
                                         <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
-                                        <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','style'=>'font-weight:bold;font-family: IRANSans !important;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
+                                        <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
                                         <?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'style' => 'direction:rtl; margin-left:-70px;']) ?>
                                     </div>
                                 </div>
@@ -331,9 +339,9 @@ use yii\helpers\Html;
 </main>
 <footer class="page-footer">
 			<span>شبکه اجتماعی
-				<a href="" target="_blank"><i class="ion icon ion-social-facebook"></i></a>
-				<a href="" target="_blank"><i class="ion icon ion-social-instagram"></i></a>
-				<a href="" target="_blank"><i class="ion icon ion-social-twitter"></i></a>
+				<a href="<?= $info->facebook; ?>" target="_blank"><i class="ion icon ion-social-facebook"></i></a>
+				<a href="<?= $info->instagram; ?>" target="_blank"><i class="ion icon ion-social-instagram"></i></a>
+				<a href="<?= $info->twitter; ?>" target="_blank"><i class="ion icon ion-social-twitter"></i></a>
 			</span>
 </footer>
 
@@ -393,6 +401,37 @@ use yii\helpers\Html;
             error:function(data){
 //                alert('please fill inputs');
                 $("#savemail").hide();
+            },
+            contentType: "application/json"
+
+        });
+        return false;
+    });
+</script>
+<script>
+    $('form.frm').submit(function(e){
+        e.preventDefault();
+        var vUrl = $("#submitcontact").data('url')+'/';
+        $.ajax({
+            url: vUrl,
+            type: 'GET',
+            data: {
+                name : $("#contact-name").val(),
+                email : $("#contact-email").val(),
+                message : $("#contact-message").val()
+            },
+            success:function(data){
+                //   alert('message saved');
+                var name=document.getElementById("contact-name").value;
+                var email=document.getElementById("contact-email").value;
+                var message=document.getElementById("contact-message").value;
+                if(name != '' && email != '' && message != '') {
+                    $("#savemessage").show();
+                }
+            },
+            error:function(data){
+//                alert('please fill inputs');
+                $("#savemessage").hide();
             },
             contentType: "application/json"
 

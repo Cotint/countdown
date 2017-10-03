@@ -17,10 +17,10 @@ use yii\widgets\ActiveForm;
     <!-- Tabs within a box -->
     <ul class="nav nav-tabs pull-right">
       <?php if($baseUrl == '/countdown/basic/web/index.php?r=info/create'){?>
-          <li class="active"><a href="<?= $base_u ?>/info/create"> درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
+          <li class="active"><a href="<?= $base_u ?>/site/index"> درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
 
       <?php }else{?>
-          <li><a href="<?= $base_u ?>/info/create">  درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
+          <li><a href="<?= $base_u ?>/site/index">  درباره ما <i class="fa fa-user" aria-hidden="true"></i></a></li>
       <?php }?>
 
       <?php if($baseUrl == '/countdown/basic/web/index.php?r=email/admin'){?>
@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
           <li><a href="<?= $base_u ?>/contact/admin">  پیام های دریافتی <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
       <?php }?>
 
-        <li><?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]) ?></li>    </ul>
+        <li><?= Html::a('خروج', ['site/logout'], ['data' => ['method' => 'post']]) ?></li>    </ul>
 
 </div>
 

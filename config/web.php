@@ -10,7 +10,9 @@ $config = [
   'language'=>'fa_ir',
   'defaultRoute'=>'site/front',
     'components' => [
-
+        'datetime' => [
+            'class' => 'app\components\DateTimeComponent',
+        ],
 
       'urlManager' => [
                'class' => 'yii\web\UrlManager',
@@ -23,7 +25,7 @@ $config = [
                 '/' => 'site/front',
                 '/admin' => 'site/login',
                 'site/index'=>'site/index',
-                'info/create'=>'info/create',
+//                'info/create'=>'info/create',
                 'email/admin'=>'email/admin',
                 'contact/admin'=>'contact/admin',
                 'site/logout'=>'site/logout',

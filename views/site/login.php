@@ -26,13 +26,14 @@ use yii\bootstrap\ActiveForm;
     <link href="<?php echo Yii::$app->request->baseUrl; ?>/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/fontawesome/font-awesome.min.css">
 </head>
-<body class="hold-transition lockscreen">
+<body class="container-fluid hold-transition lockscreen">
 <div id="app">
 
     <div style="display: none;" class="modal fade" id="exampleModal" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <?php $form = ActiveForm::begin([
+//                    'layout' => 'vertical',
                     'method' => 'post',
                     'action' => ['site/login'],
                 ]); ?>
@@ -64,8 +65,8 @@ use yii\bootstrap\ActiveForm;
     'id' => 'login-form',
     'layout' => 'horizontal',
     'fieldConfig' => [
-      //            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-      //            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+//                  'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+//                  'labelOptions' => ['class' => 'col-lg-1 control-label'],
     ],
   ]); ?>
 
