@@ -12,18 +12,18 @@ class m170923_112320_create_info_table extends Migration
      */
     public function up()
     {
-        $this->createTable('info', [
+        $this->createTable('tbl_info', [
             'id' => $this->primaryKey(),
-            'about'=> 'varchar  NOT NULL',
-            'facebook'=> 'varchar' ,
-            'instagram'=> 'varchar' ,
-            'twitter'=> 'varchar' ,
-            'tumblr'=> 'varchar' ,
-            'address'=> 'varchar' ,
-            'logo'=> 'varchar' ,
-            'email'=> 'varchar' ,
-            'phone'=> 'varchar' ,
-            'time'=> 'datetime'
+            'about'=> $this->string()->notNull(),
+            'facebook'=> $this->string(),
+            'instagram'=> $this->string(),
+            'twitter'=> $this->string(),
+            'tumblr'=> $this->string(),
+            'address'=> $this->string(),
+            'logo'=> $this->string(),
+            'email'=> $this->string(),
+            'phone'=> $this->string(),
+            'time'=> $this->datetime(),
 
         ]);
     }
@@ -33,6 +33,6 @@ class m170923_112320_create_info_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('info');
+        $this->dropTable('tbl_info');
     }
 }

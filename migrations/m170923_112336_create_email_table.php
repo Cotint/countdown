@@ -12,9 +12,9 @@ class m170923_112336_create_email_table extends Migration
      */
     public function up()
     {
-        $this->createTable('email', [
+        $this->createTable('tbl_email', [
             'id' => $this->primaryKey(),
-            'email'=> 'varchar NOT NULL'
+            'email'=> $this->string()->notNull(),
         ]);
     }
 
@@ -23,6 +23,6 @@ class m170923_112336_create_email_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('email');
+        $this->dropTable('tbl_email');
     }
 }

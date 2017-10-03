@@ -319,7 +319,7 @@ use yii\helpers\Html;
                                 </div>
                                 <div class="fields clearfix">
                                     <div class="input">
-                                        <label for="mes-email"> .</label>
+                                        <label for="mes-email"> </label>
                                         <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => 'direction:rtl; margin-left:-70px; color: #fff;']) ?>
                                     </div>
                                 </div>
