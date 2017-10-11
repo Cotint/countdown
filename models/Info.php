@@ -14,7 +14,7 @@ use yii\web\UploadedFile;
  * @property string $facebook
  * @property string $instagram
  * @property string $twitter
- * @property string $tumblr
+ * @property string telegram
  * @property string $address
  * @property string $email
  * @property string $phone
@@ -45,7 +45,7 @@ class Info extends \yii\db\ActiveRecord
         return [
             [[ 'about'], 'required'],
             [['about', 'email', 'phone', 'time'], 'string'],
-            [['facebook', 'instagram', 'twitter', 'tumblr', 'address'], 'string', 'max' => 255],
+            [['facebook', 'instagram', 'twitter', 'telegram', 'address'], 'string', 'max' => 255],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['logo'], 'string', 'max' => 250],
             ['email', 'email']
@@ -63,7 +63,7 @@ class Info extends \yii\db\ActiveRecord
             'facebook' => 'فیس بوک',
             'instagram' => 'اینستگرام',
             'twitter' => 'twitter',
-            'tumblr' => 'tumblr',
+            'telegram' => 'telegram',
             'address' => 'آدرس',
             'email' => 'ایمیل',
             'phone' => 'تلفن',

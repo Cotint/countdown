@@ -18,7 +18,7 @@ class m170923_112320_create_info_table extends Migration
             'facebook'=> $this->string(),
             'instagram'=> $this->string(),
             'twitter'=> $this->string(),
-            'tumblr'=> $this->string(),
+            'telegram'=> $this->string(),
             'address'=> $this->string(),
             'logo'=> $this->string(),
             'email'=> $this->string(),
