@@ -14,7 +14,7 @@ class m170923_112320_create_info_table extends Migration
     {
         $this->createTable('tbl_info', [
             'id' => $this->primaryKey(),
-            'about'=> $this->string()->notNull(),
+            'about'=> $this->text()->notNull(),
             'facebook'=> $this->string(),
             'instagram'=> $this->string(),
             'twitter'=> $this->string(),

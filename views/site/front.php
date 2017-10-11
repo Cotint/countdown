@@ -271,11 +271,11 @@ use yii\helpers\Html;
                                 <li  class="show-for-medium-up">
                                     <h4>شبکه اجتماعی</h4>
                                     <div class="socialnet">
-                                        <a href="<?= $info->facebook; ?>"><i class="ion ion-social-facebook"></i></a>
-                                        <a href="<?= $info->instagram; ?>"><i class="ion ion-social-instagram"></i></a>
-                                        <a href="<?= $info->twitter; ?>"><i class="ion ion-social-twitter"></i></a>
+                                        <a target="_blank" href="<?= $info->facebook; ?>"><i class="ion ion-social-facebook"></i></a>
+                                        <a target="_blank" href="<?= $info->instagram; ?>"><i class="ion ion-social-instagram"></i></a>
+                                        <a target="_blank" href="<?= $info->twitter; ?>"><i class="ion ion-social-twitter"></i></a>
 <!--                                        <a href="#"><i class="ion ion-social-pinterest"></i></a>-->
-                                        <a href="<?= $info->telegram; ?>"><i class="ion-paper-airplane"></i></a>
+                                        <a target="_blank" href="<?= $info->telegram; ?>"><i class="ion-paper-airplane"></i></a>
                                     </div>
                                 </li>
                                 <li>
