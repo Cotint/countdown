@@ -214,7 +214,7 @@ use yii\helpers\Html;
 <!--                <h2 style="text-align: right;">لورم <span class="bold">ایپسوم</span> لورم <span class="bold">ایپسوم</span> لورم ایپسوم</h2>-->
             </header>
             <article style="direction:rtl;" class="text">
-                <p style="direction:rtl;"><?= $info->about; ?></p>
+                <p class="info" style="direction:rtl;"><?= $info->about; ?></p>
 
             </article>
         </section>

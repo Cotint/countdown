@@ -917,6 +917,9 @@ strong,
     font-size: 18px;
     font-family: sans;
 }
+.page-cent .content p.info + p {
+    text-align: justify;
+}
 .float-right{
     float: right !important;
     position: relative !important;
