@@ -913,7 +913,26 @@ strong,
     position: relative;
     text-align: center;
 }
-.page-cent .content p{
+.page-cent .content p {
+    font-size: 18px;
+    font-family: sans;
+}
+.float-right{
+    float: right !important;
+    position: relative !important;
+    right: -615px !important;
+
+}.float-right2{
+    float: right !important;
+    position: relative !important;
+    right: -575px !important;
+
+}
+.float-right3{
+    float: right !important;
+    position: relative !important;
+    right: -635px !important;
+
 }
 .page-cent .content{
     width: 720px;
@@ -1480,6 +1499,8 @@ strong,
 }
 .page-contact a{
     color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 .page-contact .right{
 	text-align: right;

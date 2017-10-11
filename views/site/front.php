@@ -17,7 +17,7 @@ use yii\helpers\Html;
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>tnlmarket</title>
+    <title>Barangfood</title>
     <meta name="description" content="A responsive coming soon template, un template HTML pour une page en cours de construction">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/normalize.css">
@@ -31,12 +31,12 @@ use yii\helpers\Html;
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main.css">
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/main_responsive.css">
     <link rel="stylesheet" href="<?php echo Yii::$app->request->baseUrl; ?>/css/style-font1.css">
-    <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/modernizr-2.7.1.min.js"></script>
+    <script src="<?php echo Yii::$app->request->baseUrl; ?>/js/vendor/modernizr.js"></script>
 </head>
 
 <body id="menu" class="alt-bg">
 <div class="page-loader" id="page-loader">
-    <div><i class="ion ion-loading-d"></i><p>tnl market</p></div>
+    <div><i class="ion ion-loading-d"></i><p>Barangfood</p></div>
 </div>
 <header class="header-top">
     <div class="logo">
@@ -98,16 +98,16 @@ use yii\helpers\Html;
 <main class="page-main" id="mainpage">
     <div class="section page-home page page-cent" id="s-home">
         <div class="logo-container">
-<!--            <img class="h-logo" src="img/logo.png" alt="Logo">-->
-            <img class="h-logo" src="uploads/<?= $info->logo; ?>" alt="Logo">
+<!--            <img style="height:60px; class="h-logo" src="img/logo.png" alt="Logo">-->
+            <img style="height:60px; class="h-logo" src="uploads/<?= $info->logo; ?>" alt="Logo">
         </div>
         <section class="content">
             <header class="header">
                 <div class="h-left">
-                    <h2>TNL <strong>MARKET</strong></h2>
+                    <h2>BARANG <strong>FOOD</strong></h2>
                 </div>
                 <div class="h-right">
-                    <h3>لورم <br>ایپسوم</h3>
+                    <h3>بشقاب <br>سلامت</h3>
                     <h4 class="subhead"><a href="#when">به زودی</a></h4>
                 </div>
             </header>
@@ -169,8 +169,8 @@ use yii\helpers\Html;
         <footer class="p-footer p-scrolldown">
             <a href="#register">
                 <div class="arrow-d">
-                    <div class="before">زمان</div>
-                    <div class="after">زمان</div>
+                    <div class="before">&#1582;&#1576;&#1585;</div>
+                    <div class="after">&#1582;&#1576;&#1585;</div>
                     <div class="circle"></div>
                 </div>
             </a>
@@ -187,18 +187,19 @@ use yii\helpers\Html;
                     <div class="fields clearfix">
                         <div class="input">
                             <?= Html::submitButton('ارسال', ['class' => 'button','id'=>'submitmail','style'=>'margin-left:-89px;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-                            <?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField','style'=>'direction: rtl; margin-left: -72px;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
+                            	<label class="float-right"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
+<?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField','style'=>'direction: rtl; font-size: 15px; margin-left: -140px;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
                         </div>
                     </div>
-                <div id="savemail" style="color:white;display:none;">ایمیل شما ارسال شد</div>
+                <div id="savemail" style="color:white;text-align: center;margin-top: 30px;display:none;">ایمیل شما ارسال شد</div>
                 <?= Html::endForm() ?>
             </div>
         </section>
         <footer class="p-footer p-scrolldown">
             <a href="#about-us">
                 <div class="arrow-d">
-                    <div class="before">زمان</div>
-                    <div class="after">زمان</div>
+                    <div class="before">&#1583;&#1585;&#1576;&#1575;&#1585;&#1607;</div>
+                    <div class="after">&#1583;&#1585;&#1576;&#1575;&#1585;&#1607;</div>
                     <div class="circle"></div>
                 </div>
             </a>
@@ -220,8 +221,8 @@ use yii\helpers\Html;
         <footer class="p-footer p-scrolldown">
             <a href="#contact">
                 <div class="arrow-d">
-                    <div class="before">زمان</div>
-                    <div class="after">زمان</div>
+                    <div class="before">&#1578;&#1605;&#1575;&#1587;</div>
+                    <div class="after">&#1578;&#1605;&#1575;&#1587;</div>
                     <div class="circle"></div>
                 </div>
             </a>
@@ -249,7 +250,7 @@ use yii\helpers\Html;
                             <ul>
                                 <li>
                                     <h4>ایمیل</h4>
-                                    <p><a href="mailto://contact@mail.com"><?= $info->email; ?></a></p>
+                                    <p><a href="mailto:info@barangfood.com"><?= $info->email; ?></a></p>
                                 </li>
                                 <li>
                                     <h4>آدرس</h4>
@@ -265,7 +266,7 @@ use yii\helpers\Html;
                             <ul>
                                 <li class="show-for-medium-up">
                                     <h4>سایت</h4>
-                                    <p><a href="http://www.highhay.com">cotint.ir</a></p>
+                                    <p><a href="http://cotint.ir" target="_blank">cotint.ir</a></p>
                                 </li>
                                 <li  class="show-for-medium-up">
                                     <h4>شبکه اجتماعی</h4>
@@ -282,7 +283,7 @@ use yii\helpers\Html;
 <!--                                        <img src="img/logo.png" alt="Logo" class="logo">-->
                                         <img src="uploads/<?= $info->logo; ?>" alt="Logo" class="logo">
                                     </p>
-                                    <p class="small">powered By <strong><a href="http://highhay.com">Cotint</a></strong></p>
+                                    <p class="small">Powered By <strong><a href="http://cotint.ir/" target="_blank">Cotint</a></strong></p>
                                 </li>
                             </ul>
 
@@ -314,18 +315,19 @@ use yii\helpers\Html;
                                     <div class="input">
                                         <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
                                         <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-                                        <?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'style' => 'direction:rtl; margin-left:-70px;']) ?>
+                                        	<label class="float-right2"> &#1606;&#1575;&#1605;</label>
+<?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'style' => 'direction:rtl; font-size: 15px; margin-left:-130px;']) ?>
                                     </div>
                                 </div>
                                 <div class="fields clearfix">
                                     <div class="input">
-                                        <label for="mes-email"> </label>
-                                        <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => 'direction:rtl; margin-left:-70px; color: #fff;']) ?>
+                                        		<label class="float-right3"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
+                                        <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => 'direction:rtl; font-size: 15px; margin-left:-130px; color: #fff;']) ?>
                                     </div>
                                 </div>
                                 <div class="fields clearfix no-border">
                                     <label style="float:right;" for="contact-message">متن </label>
-                                    <?= Html::textarea( 'Contact[message]','', ['placeholder'=>'پیام', 'id'=>'contact-message', 'style' => 'direction:rtl;']) ?>
+                                    <?= Html::textarea( 'Contact[message]','', ['placeholder'=>'پیام...', 'id'=>'contact-message', 'style' => 'direction:rtl; border: 1px solid #fff; color: #000; font-size: 15px;']) ?>
                                     <div>
                                     </div>
                                 </div>

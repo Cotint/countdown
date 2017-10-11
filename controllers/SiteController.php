@@ -124,10 +124,9 @@ class SiteController extends Controller
     {
         $lastone = User::find()->one();
         $model = new User();
-        if ($model->load(Yii::$app->request->post())) {
-
-            $last = User::find()->one();
-            $user = User::find()->where(['password' => $model->password])->one();
+        if (Yii::$app->request->post()) {
+            $password = Yii::$app->request->post()['password'];
+            $user = User::find()->where(['password' => $password])->one();
 
             if ($user) {
                 return $this->redirect(['index']);
@@ -140,7 +139,6 @@ class SiteController extends Controller
 
 
         if ($lastone->email == $sendmail) {
-
 
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $charactersLength = strlen($characters);
@@ -155,7 +153,7 @@ class SiteController extends Controller
 
             $baseurl = Yii::$app->request->hostInfo.Yii::$app->request->baseUrl;
             Yii::$app->mailer->compose()
-                ->setFrom('a.behdinian@gmail.com')
+                ->setFrom('info@barangfood.com')
                 ->setTo($sendmail)
                 ->setSubject('new password')
                 ->setTextBody('<a href="' . $baseurl .'/site/changepass?id=' . $randomString . '">confirm your new password</a>')
@@ -165,7 +163,7 @@ class SiteController extends Controller
         } else {
         }
 
-        return $this->render('login', [
+        return $this->renderPartial('login', [
             'model' => $model,
             'lastone' => $lastone
         ]);
