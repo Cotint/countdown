@@ -99,7 +99,7 @@ $date = new \mjm\jdate\DateTime(true, true, 'Asia/Tehran');
             <?= $form->field($model, 'twitter')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
-            <?= $form->field($model, 'tumblr')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'telegram')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="header_form">
             <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>

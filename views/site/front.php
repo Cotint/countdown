@@ -275,7 +275,7 @@ use yii\helpers\Html;
                                         <a href="<?= $info->instagram; ?>"><i class="ion ion-social-instagram"></i></a>
                                         <a href="<?= $info->twitter; ?>"><i class="ion ion-social-twitter"></i></a>
 <!--                                        <a href="#"><i class="ion ion-social-pinterest"></i></a>-->
-                                        <a href="<?= $info->tumblr; ?>"><i class="ion ion-social-tumblr"></i></a>
+                                        <a href="<?= $info->telegram; ?>"><i class="ion-paper-airplane"></i></a>
                                     </div>
                                 </li>
                                 <li>
