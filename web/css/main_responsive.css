@@ -1,23 +1,23 @@
 
 @media (max-width : 1024px){
-   .page-cent .content ,
+	.page-cent .content ,
 	.page-about .content {
 		padding-left: 56px;
 		padding-right: 56px;
 	}
 }
 @media (max-width : 720px){
-	
+
 	#fp-nav.right{
 		right: 5px;
 	}
-    .page .content .clock {
+	.page .content .clock {
 		transform: scale(0.6);
 	}
 	.page-cent .content{
-    	width: 100%;
+		width: 100%;
 	}
-	
+
 	.page-cent .content ,
 	.page-about .content {
 		padding-left: 56px;
@@ -59,28 +59,35 @@
 	.page-home .content h3 {
 		font-size: 16px;
 	}
-    
+
 }
 /* Screen small than 480 */
 @media (max-width : 480px){
-	
-    .page .content .clock {
+	.class-input{
+		direction:rtl;
+		margin-left: -40px !important;
+	}
+	.form-src-btn{
+		margin-left: -7px !important;
+		height: 35px !important;
+	}
+	.page .content .clock {
 		transform: scale(0.5) translateX(-100%) translateY(-100%);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-	} 
+	}
 	.page .form input {
 		min-width: 100px;
 		padding: 0em 1em;
-/*		padding-left: 3.5em;*/
+		/*		padding-left: 3.5em;*/
 		left: 40px;
 	}
-	
+
 	.page .form.send_email_form .fields{
 		padding-left: 8px;
 	}
-	
+
 	.page-contact .contact img{
 		height: 32px;
 	}
@@ -101,18 +108,18 @@
 }
 /* Screen small than 430 */
 @media (max-width : 430px){
-    .page .content .clock {
+	.page .content .clock {
 		transform: scale(0.5) translateX(-100%) translateY(-100%);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-	} 
+	}
 	.page .content .clock .header {
 		font-size: 40px;
 		top: -120px;
 	}
 	.page.transition{
-/*		background: transparent;*/
+		/*		background: transparent;*/
 	}
 	#fp-nav.right{
 		right: 0px;
@@ -128,7 +135,7 @@
 }
 /* Screen small than 360px */
 @media (max-width : 360px){
-	
+
 	.page-contact .fields:first-child ,
 	.page-contact .contact .columns li:first-child {
 		margin-top: 0;
@@ -140,7 +147,7 @@
 	.page .form textarea {
 		min-height: 64px;
 	}
-	
+
 }
 /* Screen small than 320px */
 @media (max-width : 320px){
@@ -161,12 +168,12 @@
 		height: 32px;
 		padding-top: 5px;
 	}
-	
+
 	.page-home .logo-container{
 		top: 40px;
 	}
 	.page-home .logo-container img.h-logo{
-		height: 60px;
+		height: 80px;
 	}
 	.page .form label ,
 	.page .form input ,
@@ -188,20 +195,20 @@
 	.header-top .menu a {
 		padding-top: 6px;
 	}
-	
+
 }
 
 
- 
+
 /* Responsive height */
 @media (max-height : 420px){
-	
+
 	.page .content .clock {
 		transform: scale(0.4) translateX(-125%) translateY(-125%);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-	} 
+	}
 	.quick-link {
 		top: auto;
 		bottom: 0;
@@ -240,7 +247,7 @@
 	.page .form textarea {
 		min-height: 64px;
 	}
-	
+
 	.p-footer .arrow-d {
 		bottom: 10px;
 		display: none;
@@ -249,5 +256,3 @@
 		display: none;
 	}
 }
-
-    

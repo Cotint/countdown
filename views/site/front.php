@@ -186,9 +186,9 @@ use yii\helpers\Html;
                     <p class="invite center">لطفا ایمیل خود را در زیر بنویسید تا با ما در تماس باشید</p>
                     <div class="fields clearfix">
                         <div class="input">
-                            <?= Html::submitButton('ارسال', ['class' => 'button','id'=>'submitmail','style'=>'margin-left:-89px;','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
+                            <?= Html::submitButton('ارسال', ['class' => 'form-src-btn button','id'=>'submitmail','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
                             	<label class="float-right"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
-<?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField','style'=>'direction: rtl; font-size: 15px; margin-left: -140px;','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
+<?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField class-input','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
                         </div>
                     </div>
                 <div id="savemail" style="color:white;text-align: center;margin-top: 30px;display:none;">ایمیل شما ارسال شد</div>
@@ -316,13 +316,13 @@ use yii\helpers\Html;
                                         <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
                                         <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
                                         	<label class="float-right2"> &#1606;&#1575;&#1605;</label>
-<?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'style' => 'direction:rtl; font-size: 15px; margin-left:-130px;']) ?>
+<?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'class' => 'class-input']) ?>
                                     </div>
                                 </div>
                                 <div class="fields clearfix">
                                     <div class="input">
                                         		<label class="float-right3"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
-                                        <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => 'direction:rtl; font-size: 15px; margin-left:-130px; color: #fff;']) ?>
+                                        <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => ' color: #fff;', 'class' => 'class-input']) ?>
                                     </div>
                                 </div>
                                 <div class="fields clearfix no-border">
