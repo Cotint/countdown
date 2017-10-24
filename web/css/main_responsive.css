@@ -202,7 +202,9 @@
 
 /* Responsive height */
 @media (max-height : 420px){
-
+.hidden-vp{
+	display: none !important;
+}
 	.page .content .clock {
 		transform: scale(0.4) translateX(-125%) translateY(-125%);
 		position: absolute;

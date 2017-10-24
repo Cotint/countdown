@@ -122,9 +122,13 @@ iframe{
     box-sizing: border-box;
     margin: 0;
 }
+.left-form-label{
+    right: 13px;
+    position: absolute;
+}
 .class-input{
     direction:rtl !important;
-    margin-left: -72px !important;
+    margin-left: -135px !important;
 }
 .form-src-btn{
     margin-left:-89px !important;
@@ -918,7 +922,17 @@ strong,
     position: relative;
     text-align: center;
 }
-.page-cent .content p{
+.page-cent .content p {
+    text-align: justify;
+}
+.label-input-contact{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+.label-left{
+    position: relative;
+    left: 639px;
 }
 .page-cent .content{
     width: 720px;

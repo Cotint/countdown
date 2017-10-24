@@ -187,7 +187,7 @@ use yii\helpers\Html;
                     <div class="fields clearfix">
                         <div class="input">
                             <?= Html::submitButton('ارسال', ['class' => 'form-src-btn button','id'=>'submitmail','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-                            	<label class="float-right"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
+                            	<label class="float-left hidden-vp left-form-label"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
 <?= Html::input('email', 'Email[email]','', ['id'=>'email-email','class' => 'email_f requiredField class-input','placeholder'=>'لطفا ایمیل خود را وارد کنید']) ?>
                         </div>
                     </div>
@@ -214,8 +214,7 @@ use yii\helpers\Html;
 <!--                <h2 style="text-align: right;">لورم <span class="bold">ایپسوم</span> لورم <span class="bold">ایپسوم</span> لورم ایپسوم</h2>-->
             </header>
             <article style="direction:rtl;" class="text">
-                <p class="info" style="direction:rtl;"><?= $info->about; ?></p>
-
+                <p class="info" style="direction:rtl; text-align: justify;"><?= $info->about; ?></p>
             </article>
         </section>
         <footer class="p-footer p-scrolldown">
@@ -315,13 +314,13 @@ use yii\helpers\Html;
                                     <div class="input">
                                         <div id="savemessage" style="display:none;color:white;">پیغام شما ثبت شد</div>
                                         <?= Html::submitButton('ارسال', ['class' => 'button email_b' ,'id'=>'submitcontact','data-url'=>Yii::$app->request->hostInfo . Yii::$app->request->baseUrl]) ?>
-                                        	<label class="float-right2"> &#1606;&#1575;&#1605;</label>
-<?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'class' => 'class-input']) ?>
+                                        	<label class="float-right2 hidden-vp label-input-contact"> &#1606;&#1575;&#1605;</label>
+                                        <?= Html::input('text', 'Contact[name]','', ['placeholder'=>'نام', 'id'=>'contact-name', 'class' => 'class-input']) ?>
                                     </div>
                                 </div>
                                 <div class="fields clearfix">
                                     <div class="input">
-                                        		<label class="float-right3"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
+                                        		<label class="float-right3 hidden-vp label-left"> &#1575;&#1740;&#1605;&#1740;&#1604;</label>
                                         <?= Html::input('email', 'Contact[email]','', ['placeholder'=>'ایمیل', 'id'=>'contact-email', 'style' => ' color: #fff;', 'class' => 'class-input']) ?>
                                     </div>
                                 </div>
