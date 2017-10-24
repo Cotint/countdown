@@ -330,6 +330,7 @@ use yii\helpers\Html;
                                     <div>
                                     </div>
                                 </div>
+
                             <?= Html::endForm() ?>
                         </div>
                     </div>
@@ -338,6 +339,7 @@ use yii\helpers\Html;
         </div>
     </div>
 </main>
+
 <footer class="page-footer">
 			<span>شبکه اجتماعی
 				<a href="<?= $info->facebook; ?>" target="_blank"><i class="ion icon ion-social-facebook"></i></a>
