@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
       <?php }?>
 
         <li><a href="/site/logout">خروج <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-        <li><a target="_blank" href="http://barangfood.com">نمایش سایت <i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a target="_blank" href="">نمایش سایت <i class="fa fa-home" aria-hidden="true"></i></a></li>
       </ul>
 
 </div>

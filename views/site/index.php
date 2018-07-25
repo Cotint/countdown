@@ -75,7 +75,7 @@ $date = new \mjm\jdate\DateTime(true, true, 'Asia/Tehran');
                 <li><a href="<?= $base_u ?>/contact/admin">  پیام های دریافتی <i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
             <?php }?>
             <li><a href="/site/logout">خروج <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-            <li><a target="_blank" href="http://barangfood.com">نمایش سایت <i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="">نمایش سایت <i class="fa fa-home" aria-hidden="true"></i></a></li>
         </ul>
 
     </div>
