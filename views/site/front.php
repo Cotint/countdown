@@ -17,7 +17,7 @@ use yii\helpers\Html;
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Barangfood</title>
+    <title>Mashbook</title>
     <meta name="description" content="A responsive coming soon template, un template HTML pour une page en cours de construction">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::$app->request->baseUrl; ?>/css/normalize.css">
@@ -36,7 +36,7 @@ use yii\helpers\Html;
 
 <body id="menu" class="alt-bg">
 <div class="page-loader" id="page-loader">
-    <div><i class="ion ion-loading-d"></i><p>Barangfood</p></div>
+    <div><i class="ion ion-loading-d"></i><p>Mashbook</p></div>
 </div>
 <header class="header-top">
     <div class="logo">
@@ -85,12 +85,12 @@ use yii\helpers\Html;
     </ul>
 </nav>
 <div class="page-cover" id="home">
-    <div class="cover-bg pos-abs full-size bg-img" data-image-src="img/bg-slide3.jpg"></div>
+    <div class="cover-bg pos-abs full-size bg-img" data-image-src="ihttp://mashbook.ir/img/bg-slide3.jpg"></div>
     <div class="cover-bg pos-abs full-size slide-show">
-        <i class='img' data-src='./img/bg-slide1.jpg'></i>
-        <i class='img' data-src='./img/bg-slide2.jpg'></i>
-        <i class='img' data-src='./img/bg-slide3.jpg'></i>
-        <i class='img' data-src='./img/bg-slide2.jpg'></i>
+        <i class='img' data-src='http://mashbook.ir/img/bg-slide1.jpg'></i>
+        <i class='img' data-src='http://mashbook.ir/img/bg-slide2.jpg'></i>
+        <i class='img' data-src='http://mashbook.ir/img/bg-slide3.jpg'></i>
+        <i class='img' data-src='http://mashbook.ir/img/bg-slide2.jpg'></i>
     </div>
     <div class="cover-bg pos-abs full-size bg-color" data-bgcolor="rgba(51, 2, 48, 0.12)"></div>
 
@@ -104,10 +104,10 @@ use yii\helpers\Html;
         <section class="content">
             <header class="header">
                 <div class="h-left">
-                    <h2>BARANG <strong>FOOD</strong></h2>
+                    <h2>Mash <strong>Book</strong></h2>
                 </div>
                 <div class="h-right">
-                    <h3>بشقاب <br>سلامت</h3>
+                    <h3> <br></h3>
                     <h4 class="subhead"><a href="#when">به زودی</a></h4>
                 </div>
             </header>
@@ -249,7 +249,7 @@ use yii\helpers\Html;
                             <ul>
                                 <li>
                                     <h4>ایمیل</h4>
-                                    <p><a href="mailto:info@barangfood.com"><?= $info->email; ?></a></p>
+                                    <p><a href="mailto:info@mashbook.ir"><?= $info->email; ?></a></p>
                                 </li>
                                 <li>
                                     <h4>آدرس</h4>
